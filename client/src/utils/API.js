@@ -17,4 +17,7 @@ export default {
     saveBook: function (bookData) {
         return axios.post("/api/books", bookData);
     },
+    searchBooks: function (title) {
+        return axios.get("/api/google/" + title);
+    },
 };

@@ -7,7 +7,7 @@ router.get("/:title", (req, res) => {
             "https://www.googleapis.com/books/v1/volumes?q=" + req.params.title
         )
         .then((results) => {
-            console.log(reults);
+            console.log(results);
             res.json(results);
         })
         .catch((err) => {
