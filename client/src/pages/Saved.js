@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "../utils/API";
 
-function Saved() {
+export const Saved = () => {
     const [books, setBooks] = useState([]);
 
     // Load all books and store them with setBooks
@@ -21,6 +21,4 @@ function Saved() {
             <h1>These Are Your Saved Books</h1>
         </div>
     );
-}
-
-export default Saved;
+};
