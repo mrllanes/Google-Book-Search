@@ -1,7 +1,6 @@
 import { useState } from "react";
 import API from "../utils/API";
 import { BookCard } from "../components/BookCard";
-import { SearchField } from "../components/SearchField";
 
 export const Search = () => {
     const [books, setBooks] = useState([]);
@@ -20,10 +19,23 @@ export const Search = () => {
             });
     };
 
+    const handleInput = (e) => {
+        setSearchWord(e.target.value);
+    };
+
     return (
         <>
             <div className="container text-center">
-                <SearchField />
+                <input
+                    type="text"
+                    class="form-control"
+                    id="searchWord"
+                    placeholder="Search for a Book!"
+                    value={searchWord}
+                    onChange={handleInput}
+                    aria-label="Search"
+                    aria-describedby="button-addon2"
+                />
                 <button
                     class="btn btn-outline-secondary"
                     type="button"
@@ -36,9 +48,15 @@ export const Search = () => {
             <div className="container text-center">
                 <div className="row">
                     <div className="col">
-                        {books.map((data) => (
+                        {books.map((data, id) => (
                             <div key={data.id} classname="col">
-                                <BookCard {...data} />
+                                <BookCard
+                                    title={data.title}
+                                    author={data.author}
+                                    description={data.description}
+                                    image={data.image}
+                                    link={data.link}
+                                />
                             </div>
                         ))}
                     </div>
